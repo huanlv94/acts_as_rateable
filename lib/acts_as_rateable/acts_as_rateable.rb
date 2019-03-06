@@ -1,6 +1,8 @@
 module ActiveRecord
   module Acts
     module Rateable
+      extend ActiveSupport::Concern
+
       def self.included(base)
         base.extend(ClassMethods)
       end
