@@ -40,19 +40,19 @@ module ActsAsRateable
       # Rates the object by a given score. A user object can be passed to the method.
       # Additionally a rater name and free text can be passed.
       #
-      # The passed in user object must respond to methods 'login' and 'id', otherwise an
+      # The passed in user object must respond to methods 'role' and 'id', otherwise an
       # exception is raised.
       #
-      # todo refactor the 'id' & 'login' method names to the acts_as_rateable options hash and make it configurable
+      # todo refactor the 'id' & 'role' method names to the acts_as_rateable options hash and make it configurable
       #
 			def rate_it( score, user, free_text = "" )
 				return unless score
 				rate = Rate.find_or_create_by(score: score.to_i )
         raise "User must respond to 'id' in order to set the user ID!" unless user.respond_to? :id
-        raise "User must respond to 'login' in order to set the rater name!" unless user.respond_to? :login
+        raise "User must respond to 'login' in order to set the rater name!" unless user.respond_to? :role
         rate.user_id = user.id
         rate.free_text = free_text
-        rate.rater_name = user.login
+        rate.rater_name = user.role
 				rates << rate
 			end
 

@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "acts_as_rateable"
   gem.require_paths = ['lib']
-  gem.version       = '4.2.9'
+  gem.version       = '1.0.0'
   #s.rdoc_options  = ["--main", "README"]
   #s.extra_rdoc_files = ["README", "MIT-LICENSE"]
 end
