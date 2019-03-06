@@ -20,7 +20,7 @@ module ActsAsRateable
 
     module ClassMethods
       def acts_as_rateable(options = {})
-        has_many :ratings, :as => :rateable, :dependent => :destroy, :include => :rate
+        has_many :ratings, :as => :rateable, :dependent => :destroy, -> { includes :rate }
         has_many :rates, :through => :ratings, :extend => AssignRateWithUserId
         
         include ActsAsRateable::Rateable::InstanceMethods
