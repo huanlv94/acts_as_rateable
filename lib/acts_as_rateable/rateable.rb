@@ -10,7 +10,7 @@ module ActsAsRateable
 		  def <<( rate )
 		      r = Rating.new
 		      r.rate = rate
-		      r.rateable = proxy_owner
+		      r.rateable = proxy_association.owner
 		      r.user_id = rate.user_id
           r.free_text = rate.free_text
           r.rater_name = rate.rater_name
