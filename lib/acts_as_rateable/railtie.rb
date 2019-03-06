@@ -1,12 +1,11 @@
 require 'rails'
 
-module ActsAsFollower
+module ActsAsRateable
   class Railtie < Rails::Railtie
 
-    initializer "acts_as_follower.active_record" do |app|
+    initializer "acts_as_rateable.active_record" do |app|
       ActiveSupport.on_load :active_record do
-        include ActsAsFollower::Follower
-        include ActsAsFollower::Followable
+        include ActsAsRateable::Rateable
       end
     end
 
